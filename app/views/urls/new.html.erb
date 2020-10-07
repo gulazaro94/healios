@@ -1,0 +1,17 @@
+<h1>Shorten your URL</h1>
+
+<%= form_for(@url) do |f| %>
+
+  <div>
+   <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.object.errors[:url].first %>
+  </div>
+
+  <div>
+    <%= f.submit 'Shorten URL' %>
+  </div>
+
+<% end %>
