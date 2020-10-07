@@ -33,7 +33,7 @@ class UrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:url).permit(:url)
+    params.require(:url).permit(:url).to_h
   end
 
 end
