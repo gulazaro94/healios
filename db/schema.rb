@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_190837) do
   create_table "urls", force: :cascade do |t|
     t.string "url"
     t.string "token", limit: 10
-    t.string "access_count", default: "0"
+    t.bigint "access_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["token"], name: "index_urls_on_token"
