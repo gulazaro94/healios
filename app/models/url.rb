@@ -1,6 +1,7 @@
 class Url < ApplicationRecord
 
   validates :url, :token, :access_count, presence: true
+  validates :token, uniqueness: true
   validate :validate_url
 
   private

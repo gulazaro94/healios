@@ -20,6 +20,14 @@ RSpec.describe(Url) do
       expect(url).to be_invalid
       expect(url.errors[:url]).to eq(['is invalid'])
     end
+
+    it('validates token uniqueness') do
+      existing_url = create(:url)
+
+      url.token = existing_url.token
+      expect(url).to be_invalid
+      expect(url.errors[:token]).to eq(['has already been taken'])
+    end
   end
 
 end
