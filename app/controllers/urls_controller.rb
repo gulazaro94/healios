@@ -20,6 +20,16 @@ class UrlsController < ApplicationController
     @url = Url.find(params[:id])
   end
 
+  def access
+    outcome = Urls::Access.run(token: params[:token])
+
+    if outcome.valid?
+      redirect_to(outcome.result.url)
+    else
+      render(plain: outcome.errors.full_messages.join(', '))
+    end
+  end
+
   private
 
   def url_params
