@@ -22,6 +22,7 @@ Go to: http://localhost:3000
 ## Considerations
 
 - The shortened URLs are saved in the urls table with the coloumns (url, token and access_count).
+- URLs can have a max length of 2048 which is the general recommendation for browser support.
 - A random token (length of 10) is generated when you shorten a URL, if the token conflicts, it tries up to 5 times to generate another.
 - The token column has a unique index for fast lookups and uniqueness.
 - It counts every time a shortened URL is accessed in the access_count column.
